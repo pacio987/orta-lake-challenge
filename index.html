@@ -210,6 +210,26 @@
     </table>
     <p class="vuoto" style="display:none">Nessun risultato per questa ricerca.</p>
   </section>
+  <section>
+    <div class="sezione-titolo">
+      <h2>Cadetti e Allievi (1000m)</h2>
+      <span class="conteggio" id="conteggio-1000"></span>
+    </div>
+    <input class="filtro" id="filtro-1000" type="text" placeholder="Cerca per nome, società o categoria…">
+    <table id="tabella-1000">
+      <thead>
+        <tr>
+          <th data-key="atleta">Atleta <span class="freccia">↕</span></th>
+          <th data-key="categoria">Categoria <span class="freccia">↕</span></th>
+          <th data-key="genere">Gen. <span class="freccia">↕</span></th>
+          <th></th>
+          <th data-key="societa">Società <span class="freccia">↕</span></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p class="vuoto" style="display:none">Nessun risultato per questa ricerca.</p>
+  </section>
 
 </main>
 
@@ -224,6 +244,19 @@ fetch('dati.json')
 
 function normalizza(s){ return (s||"").toString().toLowerCase(); }
 
+function chiave(r, k){
+  if(k==="categoria") return [r.categoria_rank, r.genere_rank, normalizza(r.atleta)];
+  if(k==="genere") return [r.genere_rank, r.categoria_rank, normalizza(r.atleta)];
+  return normalizza(r[k]);
+}
+function confronta(a, b){
+  if(Array.isArray(a)){
+    for(let i=0;i<a.length;i++){ if(a[i]<b[i]) return -1; if(a[i]>b[i]) return 1; }
+    return 0;
+  }
+  return a<b ? -1 : a>b ? 1 : 0;
+}
+
 // --- Tabella 1x: righe semplici, ordinabile per colonna ---
 (function(){
   const dati = DATI.iscritti_1x;
@@ -236,10 +269,7 @@ function normalizza(s){ return (s||"").toString().toLowerCase(); }
   function disegna(){
     const q = normalizza(filtro.value);
     let righe = dati.filter(r => normalizza(r.atleta+" "+r.societa+" "+r.categoria+" "+r.genere).includes(q));
-    righe.sort((a,b)=>{
-      const va = normalizza(a[ordineChiave]), vb = normalizza(b[ordineChiave]);
-      return va < vb ? -1 : va > vb ? 1 : 0;
-    });
+    righe.sort((a,b)=>confronta(chiave(a,ordineChiave), chiave(b,ordineChiave)));
     if(!ordineAsc) righe.reverse();
     corpo.innerHTML = righe.map(r =>
       `<tr><td>${r.atleta}</td><td>${r.categoria}</td><td>${r.genere||""}</td><td>${r.bandiera||""}</td><td>${r.societa}</td></tr>`
@@ -253,6 +283,41 @@ function normalizza(s){ return (s||"").toString().toLowerCase(); }
       const chiave = th.dataset.key;
       ordineAsc = (chiave===ordineChiave) ? !ordineAsc : true;
       ordineChiave = chiave;
+      disegna();
+    });
+  });
+  disegna();
+})();
+
+// --- Tabella Cadetti/Allievi (1000m): stessa logica della tabella 1x ---
+(function(){
+  const dati = DATI.iscritti_1000 || [];
+  const corpo = document.querySelector("#tabella-1000 tbody");
+  const conteggio = document.getElementById("conteggio-1000");
+  const filtro = document.getElementById("filtro-1000");
+  const vuoto = document.querySelector("#tabella-1000").nextElementSibling;
+  let ordineChiave = "categoria", ordineAsc = true;
+
+  function disegna(){
+    const q = normalizza(filtro.value);
+    let righe = dati.filter(r => normalizza(r.atleta+" "+r.societa+" "+r.categoria+" "+r.genere).includes(q));
+    righe.sort((a,b)=>confronta(chiave(a,ordineChiave), chiave(b,ordineChiave)));
+    if(!ordineAsc) righe.reverse();
+    corpo.innerHTML = righe.map(r =>
+      `<tr><td>${r.atleta}</td><td>${r.categoria}</td><td>${r.genere||""}</td><td>${r.bandiera||""}</td><td>${r.societa}</td></tr>`
+    ).join("");
+    conteggio.textContent = dati.length===0 ? "nessun iscritto per ora" :
+      righe.length + " iscritti" + (righe.length!==dati.length ? " (su "+dati.length+")" : "");
+    vuoto.textContent = dati.length===0 ? "Nessun iscritto in questa categoria per ora." : "Nessun risultato per questa ricerca.";
+    vuoto.style.display = righe.length ? "none" : "block";
+  }
+  filtro.addEventListener("input", disegna);
+  document.querySelectorAll('#tabella-1000 thead th').forEach(th=>{
+    th.addEventListener("click", ()=>{
+      const c = th.dataset.key;
+      if(!c) return;
+      ordineAsc = (c===ordineChiave) ? !ordineAsc : true;
+      ordineChiave = c;
       disegna();
     });
   });
@@ -273,7 +338,13 @@ function normalizza(s){ return (s||"").toString().toLowerCase(); }
     dati.forEach(r=>{
       (equipaggi[r.equipaggio] ||= []).push(r);
     });
-    const nomi = Object.keys(equipaggi).sort((a,b)=>a.localeCompare(b,"it"));
+    const nomi = Object.keys(equipaggi).sort((a,b)=>{
+      const ra = equipaggi[a][0], rb = equipaggi[b][0];
+      const ka = [ra.categoria_rank, ra.genere_rank, a.toLowerCase()];
+      const kb = [rb.categoria_rank, rb.genere_rank, b.toLowerCase()];
+      for(let i=0;i<ka.length;i++){ if(ka[i]<kb[i]) return -1; if(ka[i]>kb[i]) return 1; }
+      return 0;
+    });
     let html = "";
     let nCrew = 0, nAtleti = 0;
     nomi.forEach(nome=>{
