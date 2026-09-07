@@ -4,373 +4,42 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Orta Lake Challenge — Iscritti</title>
-<style>
-  :root{
-    --blu-lago: #0F3241;
-    --blu-lago-2: #164A5E;
-    --ottone: #B8863C;
-    --ottone-chiaro: #E4C79A;
-    --sfondo: #EEF2F1;
-    --carta: #FFFFFF;
-    --testo: #1B2A2E;
-    --testo-tenue: #5B6E72;
-    --bordo: #DDE4E2;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-    background:var(--sfondo);
-    color:var(--testo);
-  }
-  header{
-    background: linear-gradient(135deg, var(--blu-lago) 0%, var(--blu-lago-2) 100%);
-    color:#fff;
-    padding: 2.6rem 1.5rem 3.4rem;
-    position:relative;
-    overflow:hidden;
-  }
-  header::after{
-    content:"";
-    position:absolute;
-    left:0; right:0; bottom:0;
-    height:34px;
-    background: repeating-linear-gradient(
-      -6deg,
-      transparent 0 22px,
-      rgba(255,255,255,0.05) 22px 24px
-    );
-  }
-  .eyebrow{
-    font-family: Georgia, "Times New Roman", serif;
-    font-style: italic;
-    color: var(--ottone-chiaro);
-    font-size: 1rem;
-    margin: 0 0 .3rem;
-    letter-spacing: .02em;
-  }
-  h1{
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight: 400;
-    font-size: clamp(1.8rem, 5vw, 2.6rem);
-    margin: 0 0 .4rem;
-  }
-  .sottotitolo{
-    color: #C7D6D9;
-    max-width: 46ch;
-    line-height: 1.5;
-    margin: 0;
-  }
-  main{
-    max-width: 920px;
-    margin: 1.5rem auto 3rem;
-    padding: 0 1.2rem;
-  }
-  section{
-    background: var(--carta);
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(15,50,65,0.10);
-    padding: 1.6rem 1.4rem 1.8rem;
-    margin-bottom: 1.8rem;
-  }
-  .sezione-titolo{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:.5rem;
-    border-bottom: 2px solid var(--ottone);
-    padding-bottom:.6rem;
-    margin-bottom:1rem;
-  }
-  .sezione-titolo h2{
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight:400;
-    font-size:1.4rem;
-    margin:0;
-    color: var(--blu-lago);
-  }
-  .conteggio{
-    color:var(--testo-tenue);
-    font-size:.92rem;
-  }
-  .filtro{
-    width:100%;
-    padding:.6rem .8rem;
-    border:1px solid var(--bordo);
-    border-radius:7px;
-    font-size:.95rem;
-    margin-bottom: 1rem;
-    background:#FAFBFB;
-  }
-  .filtro:focus{
-    outline:2px solid var(--ottone-chiaro);
-    border-color:var(--ottone);
-  }
-  table{
-    width:100%;
-    border-collapse:collapse;
-    font-size:.92rem;
-  }
-  thead th{
-    text-align:left;
-    font-weight:600;
-    color: var(--blu-lago);
-    border-bottom: 1px solid var(--bordo);
-    padding: .5rem .6rem;
-    cursor:pointer;
-    user-select:none;
-    white-space:nowrap;
-  }
-  thead th:hover{ color: var(--ottone); }
-  thead th .freccia{ opacity:.35; font-size:.8em; margin-left:.2em; }
-  tbody td{
-    padding: .5rem .6rem;
-    border-bottom: 1px solid #F0F2F1;
-    vertical-align:top;
-  }
-  tbody tr:hover{ background:#F7FAF9; }
-  .equipaggio-riga td{
-    background:#F4F7F6;
-    font-weight:600;
-    color:var(--blu-lago-2);
-    padding-top:.9rem;
-  }
-  .posto{
-    color:var(--testo-tenue);
-    font-variant-numeric: tabular-nums;
-    width:2.4em;
-  }
-  .vuoto{
-    text-align:center;
-    color:var(--testo-tenue);
-    padding: 1.4rem 0;
-    font-style:italic;
-  }
-  footer{
-    text-align:center;
-    color:var(--testo-tenue);
-    font-size:.85rem;
-    padding: 0 1.2rem 2rem;
-  }
-  @media (max-width:520px){
-    table{ font-size:.85rem; }
-    thead th, tbody td{ padding:.4rem .4rem; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <p class="eyebrow">Lago d'Orta · 9-11 ottobre 2026</p>
   <h1>Orta Lake Challenge</h1>
-  <p class="sottotitolo">Elenco iscritti aggiornato — 1x e otto con timoniere. I pettorali verranno assegnati e pubblicati più vicino alla gara.</p>
+  <p class="sottotitolo">Tre gare, tre elenchi iscritti. Scegli quello che ti interessa.</p>
 </header>
 
 <main>
 
-  <section>
-    <div class="sezione-titolo">
-      <h2>Singoli (1x)</h2>
-      <span class="conteggio" id="conteggio-1x"></span>
-    </div>
-    <input class="filtro" id="filtro-1x" type="text" placeholder="Cerca per nome, società o categoria…">
-    <table id="tabella-1x">
-      <thead>
-        <tr>
-          <th data-key="atleta">Atleta <span class="freccia">↕</span></th>
-          <th data-key="categoria">Categoria <span class="freccia">↕</span></th>
-          <th data-key="genere">Gen. <span class="freccia">↕</span></th>
-          <th></th>
-          <th data-key="societa">Società <span class="freccia">↕</span></th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <p class="vuoto" style="display:none">Nessun risultato per questa ricerca.</p>
-  </section>
+  <div class="schede">
 
-  <section>
-    <div class="sezione-titolo">
-      <h2>Otto con timoniere (8+)</h2>
-      <span class="conteggio" id="conteggio-8p"></span>
-    </div>
-    <input class="filtro" id="filtro-8p" type="text" placeholder="Cerca per equipaggio, atleta o società…">
-    <table id="tabella-8p">
-      <thead>
-        <tr>
-          <th data-key="equipaggio">Equipaggio</th>
-          <th data-key="posto">Post.</th>
-          <th data-key="atleta">Atleta</th>
-          <th></th>
-          <th data-key="societa">Società</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <p class="vuoto" style="display:none">Nessun risultato per questa ricerca.</p>
-  </section>
-  <section>
-    <div class="sezione-titolo">
-      <h2>Cadetti e Allievi (1000m)</h2>
-      <span class="conteggio" id="conteggio-1000"></span>
-    </div>
-    <input class="filtro" id="filtro-1000" type="text" placeholder="Cerca per nome, società o categoria…">
-    <table id="tabella-1000">
-      <thead>
-        <tr>
-          <th data-key="atleta">Atleta <span class="freccia">↕</span></th>
-          <th data-key="categoria">Categoria <span class="freccia">↕</span></th>
-          <th data-key="genere">Gen. <span class="freccia">↕</span></th>
-          <th></th>
-          <th data-key="societa">Società <span class="freccia">↕</span></th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <p class="vuoto" style="display:none">Nessun risultato per questa ricerca.</p>
-  </section>
+    <a class="scheda" href="italian-sculling-challenge.html">
+      <h2>Italian Sculling Challenge <span class="freccia-scheda">→</span></h2>
+      <p>Singoli (1x) — elenco iscritti, ricercabile e ordinabile per categoria.</p>
+    </a>
+
+    <a class="scheda" href="orta-lake-eights-challenge.html">
+      <h2>Orta Lake Eights Challenge <span class="freccia-scheda">→</span></h2>
+      <p>Otto con timoniere (8+) — equipaggi con tutti i vogatori e il timoniere.</p>
+    </a>
+
+    <a class="scheda" href="memorial-don-angelo-villa.html">
+      <h2>Memorial don Angelo Villa <span class="freccia-scheda">→</span></h2>
+      <p>Young categories — Cadetti e Allievi (1000m).</p>
+    </a>
+
+  </div>
 
 </main>
 
 <footer>
-  Pagina dimostrativa generata dai dati di iscrizione correnti — non ufficiale.
+  Pagine generate dai dati di iscrizione correnti — non ufficiali.
 </footer>
-
-<script>
-fetch('dati.json')
-  .then(r => r.json())
-  .then(DATI => {
-
-function normalizza(s){ return (s||"").toString().toLowerCase(); }
-
-function chiave(r, k){
-  if(k==="categoria") return [r.categoria_rank, r.genere_rank, normalizza(r.atleta)];
-  if(k==="genere") return [r.genere_rank, r.categoria_rank, normalizza(r.atleta)];
-  return normalizza(r[k]);
-}
-function confronta(a, b){
-  if(Array.isArray(a)){
-    for(let i=0;i<a.length;i++){ if(a[i]<b[i]) return -1; if(a[i]>b[i]) return 1; }
-    return 0;
-  }
-  return a<b ? -1 : a>b ? 1 : 0;
-}
-
-// --- Tabella 1x: righe semplici, ordinabile per colonna ---
-(function(){
-  const dati = DATI.iscritti_1x;
-  const corpo = document.querySelector("#tabella-1x tbody");
-  const conteggio = document.getElementById("conteggio-1x");
-  const filtro = document.getElementById("filtro-1x");
-  const vuoto = document.querySelector("#tabella-1x").nextElementSibling;
-  let ordineChiave = "categoria", ordineAsc = true;
-
-  function disegna(){
-    const q = normalizza(filtro.value);
-    let righe = dati.filter(r => normalizza(r.atleta+" "+r.societa+" "+r.categoria+" "+r.genere).includes(q));
-    righe.sort((a,b)=>confronta(chiave(a,ordineChiave), chiave(b,ordineChiave)));
-    if(!ordineAsc) righe.reverse();
-    corpo.innerHTML = righe.map(r =>
-      `<tr><td>${r.atleta}</td><td>${r.categoria}</td><td>${r.genere||""}</td><td>${r.bandiera||""}</td><td>${r.societa}</td></tr>`
-    ).join("");
-    conteggio.textContent = righe.length + " iscritti" + (righe.length!==dati.length ? " (su "+dati.length+")" : "");
-    vuoto.style.display = righe.length ? "none" : "block";
-  }
-  filtro.addEventListener("input", disegna);
-  document.querySelectorAll('#tabella-1x thead th').forEach(th=>{
-    th.addEventListener("click", ()=>{
-      const chiave = th.dataset.key;
-      ordineAsc = (chiave===ordineChiave) ? !ordineAsc : true;
-      ordineChiave = chiave;
-      disegna();
-    });
-  });
-  disegna();
-})();
-
-// --- Tabella Cadetti/Allievi (1000m): stessa logica della tabella 1x ---
-(function(){
-  const dati = DATI.iscritti_1000 || [];
-  const corpo = document.querySelector("#tabella-1000 tbody");
-  const conteggio = document.getElementById("conteggio-1000");
-  const filtro = document.getElementById("filtro-1000");
-  const vuoto = document.querySelector("#tabella-1000").nextElementSibling;
-  let ordineChiave = "categoria", ordineAsc = true;
-
-  function disegna(){
-    const q = normalizza(filtro.value);
-    let righe = dati.filter(r => normalizza(r.atleta+" "+r.societa+" "+r.categoria+" "+r.genere).includes(q));
-    righe.sort((a,b)=>confronta(chiave(a,ordineChiave), chiave(b,ordineChiave)));
-    if(!ordineAsc) righe.reverse();
-    corpo.innerHTML = righe.map(r =>
-      `<tr><td>${r.atleta}</td><td>${r.categoria}</td><td>${r.genere||""}</td><td>${r.bandiera||""}</td><td>${r.societa}</td></tr>`
-    ).join("");
-    conteggio.textContent = dati.length===0 ? "nessun iscritto per ora" :
-      righe.length + " iscritti" + (righe.length!==dati.length ? " (su "+dati.length+")" : "");
-    vuoto.textContent = dati.length===0 ? "Nessun iscritto in questa categoria per ora." : "Nessun risultato per questa ricerca.";
-    vuoto.style.display = righe.length ? "none" : "block";
-  }
-  filtro.addEventListener("input", disegna);
-  document.querySelectorAll('#tabella-1000 thead th').forEach(th=>{
-    th.addEventListener("click", ()=>{
-      const c = th.dataset.key;
-      if(!c) return;
-      ordineAsc = (c===ordineChiave) ? !ordineAsc : true;
-      ordineChiave = c;
-      disegna();
-    });
-  });
-  disegna();
-})();
-
-// --- Tabella 8+: raggruppata per equipaggio, il filtro tiene l'equipaggio intero se un membro combacia ---
-(function(){
-  const dati = DATI.iscritti_8p;
-  const corpo = document.querySelector("#tabella-8p tbody");
-  const conteggio = document.getElementById("conteggio-8p");
-  const filtro = document.getElementById("filtro-8p");
-  const vuoto = document.querySelector("#tabella-8p").nextElementSibling;
-
-  function disegna(){
-    const q = normalizza(filtro.value);
-    const equipaggi = {};
-    dati.forEach(r=>{
-      (equipaggi[r.equipaggio] ||= []).push(r);
-    });
-    const nomi = Object.keys(equipaggi).sort((a,b)=>{
-      const ra = equipaggi[a][0], rb = equipaggi[b][0];
-      const ka = [ra.categoria_rank, ra.genere_rank, a.toLowerCase()];
-      const kb = [rb.categoria_rank, rb.genere_rank, b.toLowerCase()];
-      for(let i=0;i<ka.length;i++){ if(ka[i]<kb[i]) return -1; if(ka[i]>kb[i]) return 1; }
-      return 0;
-    });
-    let html = "";
-    let nCrew = 0, nAtleti = 0;
-    nomi.forEach(nome=>{
-      const membri = equipaggi[nome];
-      const combacia = q==="" || normalizza(nome+" "+membri.map(m=>m.atleta+" "+m.societa).join(" ")).includes(q);
-      if(!combacia) return;
-      nCrew++;
-      html += `<tr class="equipaggio-riga"><td colspan="5">${nome} <span style="font-weight:400;color:var(--testo-tenue)">— ${membri[0].categoria} · ${membri[0].genere_equipaggio||"?"}</span></td></tr>`;
-      membri.forEach(m=>{
-        nAtleti++;
-        html += `<tr><td></td><td class="posto">${m.posto}</td><td>${m.atleta}</td><td>${m.bandiera||""}</td><td>${m.societa}</td></tr>`;
-      });
-    });
-    corpo.innerHTML = html;
-    conteggio.textContent = nCrew + " equipaggi, " + nAtleti + " posti barca";
-    vuoto.style.display = nAtleti ? "none" : "block";
-  }
-  filtro.addEventListener("input", disegna);
-  disegna();
-})();
-  })
-  .catch(err => {
-    document.body.insertAdjacentHTML('afterbegin',
-      '<p style="color:#a33;padding:1rem;">Impossibile caricare dati.json: ' + err + '</p>');
-  });
-</script>
 
 </body>
 </html>
