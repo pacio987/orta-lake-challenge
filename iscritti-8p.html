@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orta Lake Eights Challenge — Orta Lake Challenge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Orta Lake Challenge · Lago d'Orta · 9-11 ottobre 2026</p>
+  <h1>Orta Lake Eights Challenge</h1>
+  <p class="sottotitolo">Otto con timoniere (8+). Elenco iscritti aggiornato — i pettorali verranno assegnati e pubblicati più vicino alla gara.</p>
+</header>
+
+<main>
+
+  <a class="indietro" href="iscritti.html">← Torna alle tre gare</a>
+
+  <section>
+    <div class="sezione-titolo">
+      <h2>Equipaggi</h2>
+      <span class="conteggio" id="conteggio-8p"></span>
+    </div>
+    <input class="filtro" id="filtro-8p" type="text" placeholder="Cerca per equipaggio, atleta o società…">
+    <table id="tabella-8p">
+      <thead>
+        <tr>
+          <th data-key="equipaggio">Equipaggio</th>
+          <th data-key="posto">Post.</th>
+          <th data-key="atleta">Atleta</th>
+          <th></th>
+          <th data-key="societa">Società</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p class="vuoto" style="display:none">Nessun risultato per questa ricerca.</p>
+  </section>
+
+</main>
+
+<footer>
+  Pagina generata dai dati di iscrizione correnti — non ufficiale.
+</footer>
+
+<script src="script.js"></script>
+<script>
+fetch('dati.json')
+  .then(r => r.json())
+  .then(DATI => {
+    inizializzaTabellaEquipaggi(DATI.iscritti_8p, {
+      tabellaId: "#tabella-8p", filtroId: "filtro-8p", conteggioId: "conteggio-8p"
+    });
+  })
+  .catch(err => {
+    document.body.insertAdjacentHTML('afterbegin',
+      '<p style="color:#a33;padding:1rem;">Impossibile caricare dati.json: ' + err + '</p>');
+  });
+</script>
+
+</body>
+</html>

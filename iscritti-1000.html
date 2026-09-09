@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memorial don Angelo Villa — Orta Lake Challenge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Orta Lake Challenge · Lago d'Orta · 9-11 ottobre 2026</p>
+  <h1>Memorial don Angelo Villa</h1>
+  <p class="sottotitolo">Young categories — Cadetti e Allievi (1000m). Elenco iscritti aggiornato — i pettorali verranno assegnati e pubblicati più vicino alla gara.</p>
+</header>
+
+<main>
+
+  <a class="indietro" href="iscritti.html">← Torna alle tre gare</a>
+
+  <section>
+    <div class="sezione-titolo">
+      <h2>Iscritti</h2>
+      <span class="conteggio" id="conteggio-1000"></span>
+    </div>
+    <input class="filtro" id="filtro-1000" type="text" placeholder="Cerca per nome, società o categoria…">
+    <table id="tabella-1000">
+      <thead>
+        <tr>
+          <th data-key="atleta">Atleta <span class="freccia">↕</span></th>
+          <th data-key="categoria">Categoria <span class="freccia">↕</span></th>
+          <th data-key="genere">Gen. <span class="freccia">↕</span></th>
+          <th></th>
+          <th data-key="societa">Società <span class="freccia">↕</span></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p class="vuoto" style="display:none">Nessun risultato per questa ricerca.</p>
+  </section>
+
+</main>
+
+<footer>
+  Pagina generata dai dati di iscrizione correnti — non ufficiale.
+</footer>
+
+<script src="script.js"></script>
+<script>
+fetch('dati.json')
+  .then(r => r.json())
+  .then(DATI => {
+    inizializzaTabellaSemplice(DATI.iscritti_1000, {
+      tabellaId: "#tabella-1000", filtroId: "filtro-1000", conteggioId: "conteggio-1000",
+      messaggioSeVuoto: "Nessun iscritto in questa categoria per ora."
+    });
+  })
+  .catch(err => {
+    document.body.insertAdjacentHTML('afterbegin',
+      '<p style="color:#a33;padding:1rem;">Impossibile caricare dati.json: ' + err + '</p>');
+  });
+</script>
+
+</body>
+</html>
