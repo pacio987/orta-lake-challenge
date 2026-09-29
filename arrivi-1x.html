@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Italian Sculling Challenge — Arrivi — Orta Lake Challenge</title>
+<title>Italian Sculling Challenge — Risultati — Orta Lake Challenge</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <p class="eyebrow">Arrivi · Orta Lake Challenge</p>
+  <p class="eyebrow">Risultati · Orta Lake Challenge</p>
   <h1>Italian Sculling Challenge</h1>
-  <p class="sottotitolo">Singoli (1x)</p>
+  <p class="sottotitolo">Singoli (1x). Classifica assoluta e di categoria — clicca sulle intestazioni per ordinare.</p>
 </header>
 
 <main>
@@ -20,9 +20,27 @@
 
   <section>
     <div class="sezione-titolo">
-      <h2>Risultati</h2>
+      <h2>Classifica</h2>
+      <span class="conteggio" id="conteggio-1x"></span>
     </div>
-    <p class="vuoto">I risultati non sono ancora disponibili: saranno pubblicati a gara conclusa.</p>
+    <input class="filtro" id="filtro-1x" type="text" placeholder="Cerca per nome, società o categoria…">
+    <table id="tabella-1x">
+      <thead>
+        <tr>
+          <th data-key="pettorale">Pett. <span class="freccia">↕</span></th>
+          <th data-key="pos_assoluta">Ass. <span class="freccia">↕</span></th>
+          <th data-key="pos_categoria">Cat. <span class="freccia">↕</span></th>
+          <th data-key="atleta">Atleta <span class="freccia">↕</span></th>
+          <th data-key="categoria">Categoria <span class="freccia">↕</span></th>
+          <th data-key="genere">Gen. <span class="freccia">↕</span></th>
+          <th></th>
+          <th data-key="societa">Società <span class="freccia">↕</span></th>
+          <th data-key="tempo">Tempo <span class="freccia">↕</span></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p class="vuoto" style="display:none">Risultati non ancora disponibili.</p>
   </section>
 
 </main>
@@ -30,6 +48,21 @@
 <footer>
   Pagina generata dai dati della manifestazione — non ufficiale.
 </footer>
+
+<script src="script.js"></script>
+<script>
+fetch('risultati.json')
+  .then(r => r.json())
+  .then(DATI => {
+    inizializzaClassificaSemplice(DATI.arrivi_1x, {
+      tabellaId: "#tabella-1x", filtroId: "filtro-1x", conteggioId: "conteggio-1x"
+    });
+  })
+  .catch(err => {
+    document.body.insertAdjacentHTML('afterbegin',
+      '<p style="color:#a33;padding:1rem;">Impossibile caricare risultati.json: ' + err + '</p>');
+  });
+</script>
 
 </body>
 </html>

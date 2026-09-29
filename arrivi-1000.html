@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Memorial don Angelo Villa — Arrivi — Orta Lake Challenge</title>
+<title>Memorial don Angelo Villa — Risultati — Orta Lake Challenge</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <p class="eyebrow">Arrivi · Orta Lake Challenge</p>
+  <p class="eyebrow">Risultati · Orta Lake Challenge</p>
   <h1>Memorial don Angelo Villa</h1>
-  <p class="sottotitolo">Young categories — Cadetti e Allievi (1000m)</p>
+  <p class="sottotitolo">Young categories — Cadetti e Allievi (1000m). Classifica assoluta e di categoria.</p>
 </header>
 
 <main>
@@ -20,9 +20,27 @@
 
   <section>
     <div class="sezione-titolo">
-      <h2>Risultati</h2>
+      <h2>Classifica</h2>
+      <span class="conteggio" id="conteggio-1000"></span>
     </div>
-    <p class="vuoto">I risultati non sono ancora disponibili: saranno pubblicati a gara conclusa.</p>
+    <input class="filtro" id="filtro-1000" type="text" placeholder="Cerca per nome, società o categoria…">
+    <table id="tabella-1000">
+      <thead>
+        <tr>
+          <th data-key="pettorale">Pett. <span class="freccia">↕</span></th>
+          <th data-key="pos_assoluta">Ass. <span class="freccia">↕</span></th>
+          <th data-key="pos_categoria">Cat. <span class="freccia">↕</span></th>
+          <th data-key="atleta">Atleta <span class="freccia">↕</span></th>
+          <th data-key="categoria">Categoria <span class="freccia">↕</span></th>
+          <th data-key="genere">Gen. <span class="freccia">↕</span></th>
+          <th></th>
+          <th data-key="societa">Società <span class="freccia">↕</span></th>
+          <th data-key="tempo">Tempo <span class="freccia">↕</span></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p class="vuoto" style="display:none">Risultati non ancora disponibili.</p>
   </section>
 
 </main>
@@ -30,6 +48,21 @@
 <footer>
   Pagina generata dai dati della manifestazione — non ufficiale.
 </footer>
+
+<script src="script.js"></script>
+<script>
+fetch('risultati.json')
+  .then(r => r.json())
+  .then(DATI => {
+    inizializzaClassificaSemplice(DATI.arrivi_1000, {
+      tabellaId: "#tabella-1000", filtroId: "filtro-1000", conteggioId: "conteggio-1000"
+    });
+  })
+  .catch(err => {
+    document.body.insertAdjacentHTML('afterbegin',
+      '<p style="color:#a33;padding:1rem;">Impossibile caricare risultati.json: ' + err + '</p>');
+  });
+</script>
 
 </body>
 </html>
