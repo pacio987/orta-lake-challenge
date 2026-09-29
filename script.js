@@ -30,7 +30,7 @@ function inizializzaTabellaSemplice(dati, opt){
     righe.sort((a,b)=>confronta(chiave(a,ordineChiave), chiave(b,ordineChiave)));
     if(!ordineAsc) righe.reverse();
     corpo.innerHTML = righe.map(r =>
-      `<tr><td>${r.atleta}</td><td>${r.categoria}</td><td>${r.genere||""}</td><td>${r.bandiera||""}</td><td>${r.societa}</td></tr>`
+      `<tr><td>${r.atleta}</td><td>${r.categoria}</td><td>${r.genere||""}</td><td>${r.anno_nascita||""}</td><td>${r.bandiera||""}</td><td>${r.societa}</td></tr>`
     ).join("");
     conteggio.textContent = dati.length===0 ? (opt.messaggioSeVuoto || "nessun iscritto per ora") :
       righe.length + " iscritti" + (righe.length!==dati.length ? " (su "+dati.length+")" : "");
@@ -77,10 +77,10 @@ function inizializzaTabellaEquipaggi(dati, opt){
       const combacia = q==="" || normalizza(nome+" "+membri.map(m=>m.atleta+" "+m.societa).join(" ")).includes(q);
       if(!combacia) return;
       nCrew++;
-      html += `<tr class="equipaggio-riga"><td colspan="5">${nome} <span style="font-weight:400;color:var(--testo-tenue)">— ${membri[0].categoria} · ${membri[0].genere_equipaggio||"?"}${membri[0].barca ? " · "+membri[0].barca : ""}</span></td></tr>`;
+      html += `<tr class="equipaggio-riga"><td colspan="6">${nome} <span style="font-weight:400;color:var(--testo-tenue)">— ${membri[0].categoria} · ${membri[0].genere_equipaggio||"?"}${membri[0].barca ? " · "+membri[0].barca : ""}</span></td></tr>`;
       membri.forEach(m=>{
         nAtleti++;
-        html += `<tr><td></td><td class="posto">${m.posto}</td><td>${m.atleta}</td><td>${m.bandiera||""}</td><td>${m.societa}</td></tr>`;
+        html += `<tr><td></td><td class="posto">${m.posto}</td><td>${m.atleta}</td><td>${m.anno_nascita||""}</td><td>${m.bandiera||""}</td><td>${m.societa}</td></tr>`;
       });
     });
     corpo.innerHTML = html;
