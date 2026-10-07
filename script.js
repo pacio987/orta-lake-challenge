@@ -4,6 +4,7 @@ function chiave(r, k){
   if(k==="categoria") return [r.categoria_rank, r.genere_rank, normalizza(r.atleta)];
   if(k==="genere") return [r.genere_rank, r.categoria_rank, normalizza(r.atleta)];
   if(k==="pettorale") return [r.pettorale ?? 9999, normalizza(r.atleta)];
+  if(k==="orario") return [r.orario || "", r.pettorale ?? 9999];
   return normalizza(r[k]);
 }
 function confronta(a, b){
@@ -184,15 +185,24 @@ function inizializzaStartListSemplice(dati, opt){
   const conteggio = document.getElementById(opt.conteggioId);
   const filtro = document.getElementById(opt.filtroId);
   const vuoto = document.querySelector(opt.tabellaId).nextElementSibling;
-  let ordineChiave = "pettorale", ordineAsc = true;
+  const chiaveIniziale = opt.ordineIniziale || "pettorale";
+  let ordineChiave = chiaveIniziale, ordineAsc = true;
+  const SEP = ' style="border-top:4px solid var(--ottone)"';
 
   function disegna(){
     const q = normalizza(filtro.value);
     let righe = dati.filter(r => normalizza(r.atleta+" "+r.societa+" "+r.categoria+" "+r.genere).includes(q));
     righe.sort((a,b)=>confronta(chiave(a,ordineChiave), chiave(b,ordineChiave)));
     if(!ordineAsc) righe.reverse();
-    corpo.innerHTML = righe.map(r =>
-      `<tr><td>${r.pettorale ?? ""}</td>${opt.conOra ? `<td>${r.orario||""}</td>` : ""}<td>${r.atleta}</td><td>${r.categoria}</td><td>${r.genere||""}</td><td>${r.bandiera||""}</td><td>${r.societa}</td></tr>`
+    // riga più spessa tra i gruppi (solo nell'ordinamento di default)
+    const separa = (r, prec) => {
+      if(!prec || ordineChiave!==chiaveIniziale || !ordineAsc) return false;
+      if(opt.separatore==="ogni25") return r.pettorale!=null && (r.pettorale-1)%25===0;
+      if(opt.separatore==="orario") return (r.orario||"") !== (prec.orario||"");
+      return false;
+    };
+    corpo.innerHTML = righe.map((r,i) =>
+      `<tr${separa(r, righe[i-1]) ? SEP : ""}><td>${r.pettorale ?? ""}</td>${opt.conOra ? `<td>${r.orario||""}</td>` : ""}<td>${r.atleta}</td><td>${r.categoria}</td><td>${r.genere||""}</td><td>${r.bandiera||""}</td><td>${r.societa}</td></tr>`
     ).join("");
     conteggio.textContent = dati.length===0 ? (opt.messaggioSeVuoto || "start list non ancora disponibile") :
       righe.length + " iscritti" + (righe.length!==dati.length ? " (su "+dati.length+")" : "");
@@ -231,14 +241,16 @@ function inizializzaStartListEquipaggi(dati, opt){
       return pa - pb || a.localeCompare(b,"it");
     });
     let html = "";
-    let nCrew = 0, nAtleti = 0;
+    let nCrew = 0, nAtleti = 0, orarioPrec = null;
     nomi.forEach(nome=>{
       const membri = equipaggi[nome];
       const combacia = q==="" || normalizza(nome+" "+membri.map(m=>m.atleta+" "+m.societa).join(" ")).includes(q);
       if(!combacia) return;
       nCrew++;
       const r0 = membri[0];
-      html += `<tr class="equipaggio-riga"><td colspan="5">${r0.pettorale ? "Pett. "+r0.pettorale+" — " : ""}${r0.orario ? "ore "+r0.orario+" — " : ""}${nome} <span style="font-weight:400;color:var(--testo-tenue)">— ${r0.categoria} · ${r0.genere_equipaggio||"?"}</span></td></tr>`;
+      const nuovoBlocco = orarioPrec !== null && (r0.orario||"") !== orarioPrec;
+      orarioPrec = r0.orario || "";
+      html += `<tr class="equipaggio-riga"><td colspan="5"${nuovoBlocco ? ' style="border-top:4px solid var(--ottone)"' : ""}>${r0.pettorale ? "Pett. "+r0.pettorale+" — " : ""}${r0.orario ? "ore "+r0.orario+" — " : ""}${nome} <span style="font-weight:400;color:var(--testo-tenue)">— ${r0.categoria} · ${r0.genere_equipaggio||"?"}</span></td></tr>`;
       membri.forEach(m=>{
         nAtleti++;
         html += `<tr><td></td><td class="posto">${m.posto}</td><td>${m.atleta}</td><td>${m.bandiera||""}</td><td>${m.societa}</td></tr>`;

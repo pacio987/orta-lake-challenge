@@ -52,7 +52,7 @@ fetch('startlist.json')
   .then(r => r.json())
   .then(DATI => {
     inizializzaStartListSemplice(DATI.startlist_1x, {
-      tabellaId: "#tabella-1x", filtroId: "filtro-1x", conteggioId: "conteggio-1x"
+      tabellaId: "#tabella-1x", filtroId: "filtro-1x", conteggioId: "conteggio-1x", separatore: "ogni25"
     });
   })
   .catch(err => {
