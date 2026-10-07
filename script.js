@@ -192,7 +192,7 @@ function inizializzaStartListSemplice(dati, opt){
     righe.sort((a,b)=>confronta(chiave(a,ordineChiave), chiave(b,ordineChiave)));
     if(!ordineAsc) righe.reverse();
     corpo.innerHTML = righe.map(r =>
-      `<tr><td>${r.pettorale ?? ""}</td><td>${r.atleta}</td><td>${r.categoria}</td><td>${r.genere||""}</td><td>${r.bandiera||""}</td><td>${r.societa}</td></tr>`
+      `<tr><td>${r.pettorale ?? ""}</td>${opt.conOra ? `<td>${r.orario||""}</td>` : ""}<td>${r.atleta}</td><td>${r.categoria}</td><td>${r.genere||""}</td><td>${r.bandiera||""}</td><td>${r.societa}</td></tr>`
     ).join("");
     conteggio.textContent = dati.length===0 ? (opt.messaggioSeVuoto || "start list non ancora disponibile") :
       righe.length + " iscritti" + (righe.length!==dati.length ? " (su "+dati.length+")" : "");
@@ -238,7 +238,7 @@ function inizializzaStartListEquipaggi(dati, opt){
       if(!combacia) return;
       nCrew++;
       const r0 = membri[0];
-      html += `<tr class="equipaggio-riga"><td colspan="5">${r0.pettorale ? "Pett. "+r0.pettorale+" — " : ""}${nome} <span style="font-weight:400;color:var(--testo-tenue)">— ${r0.categoria} · ${r0.genere_equipaggio||"?"}</span></td></tr>`;
+      html += `<tr class="equipaggio-riga"><td colspan="5">${r0.pettorale ? "Pett. "+r0.pettorale+" — " : ""}${r0.orario ? "ore "+r0.orario+" — " : ""}${nome} <span style="font-weight:400;color:var(--testo-tenue)">— ${r0.categoria} · ${r0.genere_equipaggio||"?"}</span></td></tr>`;
       membri.forEach(m=>{
         nAtleti++;
         html += `<tr><td></td><td class="posto">${m.posto}</td><td>${m.atleta}</td><td>${m.bandiera||""}</td><td>${m.societa}</td></tr>`;

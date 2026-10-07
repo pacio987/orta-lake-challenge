@@ -11,7 +11,7 @@
 <header>
   <p class="eyebrow">Start list · Orta Lake Challenge</p>
   <h1>Orta Lake Eights Challenge</h1>
-  <p class="sottotitolo">Otto con timoniere (8+)</p>
+  <p class="sottotitolo">Otto con timoniere (8+). Ordine di partenza provvisorio, con orario di partenza.</p>
 </header>
 
 <main>
@@ -20,9 +20,23 @@
 
   <section>
     <div class="sezione-titolo">
-      <h2>Ordine di partenza</h2>
+      <h2>Partenti</h2>
+      <span class="conteggio" id="conteggio-8p"></span>
     </div>
-    <p class="vuoto">La start list non è ancora disponibile: sarà pubblicata quando i pettorali saranno assegnati, più vicino alla data della gara.</p>
+    <input class="filtro" id="filtro-8p" type="text" placeholder="Cerca per equipaggio, atleta o società…">
+    <table id="tabella-8p">
+      <thead>
+        <tr>
+          <th>Equipaggio</th>
+          <th>Post.</th>
+          <th>Atleta</th>
+          <th></th>
+          <th>Società</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p class="vuoto" style="display:none">Start list non ancora disponibile.</p>
   </section>
 
 </main>
@@ -30,6 +44,21 @@
 <footer>
   Pagina generata dai dati della manifestazione — non ufficiale.
 </footer>
+
+<script src="script.js"></script>
+<script>
+fetch('startlist.json')
+  .then(r => r.json())
+  .then(DATI => {
+    inizializzaStartListEquipaggi(DATI.startlist_8p, {
+      tabellaId: "#tabella-8p", filtroId: "filtro-8p", conteggioId: "conteggio-8p"
+    });
+  })
+  .catch(err => {
+    document.body.insertAdjacentHTML('afterbegin',
+      '<p style="color:#a33;padding:1rem;">Impossibile caricare startlist.json: ' + err + '</p>');
+  });
+</script>
 
 </body>
 </html>

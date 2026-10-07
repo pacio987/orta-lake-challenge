@@ -11,7 +11,7 @@
 <header>
   <p class="eyebrow">Start list · Orta Lake Challenge</p>
   <h1>Italian Sculling Challenge</h1>
-  <p class="sottotitolo">Singoli (1x)</p>
+  <p class="sottotitolo">Singoli (1x). Ordine di partenza provvisorio.</p>
 </header>
 
 <main>
@@ -20,9 +20,24 @@
 
   <section>
     <div class="sezione-titolo">
-      <h2>Ordine di partenza</h2>
+      <h2>Partenti</h2>
+      <span class="conteggio" id="conteggio-1x"></span>
     </div>
-    <p class="vuoto">La start list non è ancora disponibile: sarà pubblicata quando i pettorali saranno assegnati, più vicino alla data della gara.</p>
+    <input class="filtro" id="filtro-1x" type="text" placeholder="Cerca per nome, società o categoria…">
+    <table id="tabella-1x">
+      <thead>
+        <tr>
+          <th data-key="pettorale">Pett. <span class="freccia">↕</span></th>
+          <th data-key="atleta">Atleta <span class="freccia">↕</span></th>
+          <th data-key="categoria">Categoria <span class="freccia">↕</span></th>
+          <th data-key="genere">Gen. <span class="freccia">↕</span></th>
+          <th></th>
+          <th data-key="societa">Società <span class="freccia">↕</span></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p class="vuoto" style="display:none">Start list non ancora disponibile.</p>
   </section>
 
 </main>
@@ -30,6 +45,21 @@
 <footer>
   Pagina generata dai dati della manifestazione — non ufficiale.
 </footer>
+
+<script src="script.js"></script>
+<script>
+fetch('startlist.json')
+  .then(r => r.json())
+  .then(DATI => {
+    inizializzaStartListSemplice(DATI.startlist_1x, {
+      tabellaId: "#tabella-1x", filtroId: "filtro-1x", conteggioId: "conteggio-1x"
+    });
+  })
+  .catch(err => {
+    document.body.insertAdjacentHTML('afterbegin',
+      '<p style="color:#a33;padding:1rem;">Impossibile caricare startlist.json: ' + err + '</p>');
+  });
+</script>
 
 </body>
 </html>
