@@ -202,7 +202,7 @@ function inizializzaStartListSemplice(dati, opt){
       return false;
     };
     corpo.innerHTML = righe.map((r,i) =>
-      `<tr${separa(r, righe[i-1]) ? SEP : ""}><td>${r.pettorale ?? ""}</td>${opt.conOra ? `<td>${r.orario||""}</td>` : ""}<td>${r.atleta}</td><td>${r.categoria}</td><td>${r.genere||""}</td><td>${r.bandiera||""}</td><td>${r.societa}</td></tr>`
+      `<tr${separa(r, righe[i-1]) ? SEP : ""}><td>${r.pettorale ?? ""}</td>${opt.conOra ? `<td>${r.orario||""}</td>` : ""}<td>${r.atleta}</td><td>${r.categoria}</td><td>${r.genere||""}</td><td>${r.anno_nascita||""}</td><td>${r.bandiera||""}</td><td>${r.societa}</td></tr>`
     ).join("");
     conteggio.textContent = dati.length===0 ? (opt.messaggioSeVuoto || "start list non ancora disponibile") :
       righe.length + " iscritti" + (righe.length!==dati.length ? " (su "+dati.length+")" : "");
@@ -250,10 +250,10 @@ function inizializzaStartListEquipaggi(dati, opt){
       const r0 = membri[0];
       const nuovoBlocco = orarioPrec !== null && (r0.orario||"") !== orarioPrec;
       orarioPrec = r0.orario || "";
-      html += `<tr class="equipaggio-riga"><td colspan="5"${nuovoBlocco ? ' style="border-top:4px solid var(--ottone)"' : ""}>${r0.pettorale ? "Pett. "+r0.pettorale+" — " : ""}${r0.orario ? "ore "+r0.orario+" — " : ""}${nome} <span style="font-weight:400;color:var(--testo-tenue)">— ${r0.categoria} · ${r0.genere_equipaggio||"?"}</span></td></tr>`;
+      html += `<tr class="equipaggio-riga"><td colspan="6"${nuovoBlocco ? ' style="border-top:4px solid var(--ottone)"' : ""}>${r0.pettorale ? "Pett. "+r0.pettorale+" — " : ""}${r0.orario ? "ore "+r0.orario+" — " : ""}${nome} <span style="font-weight:400;color:var(--testo-tenue)">— ${r0.categoria} · ${r0.genere_equipaggio||"?"}</span></td></tr>`;
       membri.forEach(m=>{
         nAtleti++;
-        html += `<tr><td></td><td class="posto">${m.posto}</td><td>${m.atleta}</td><td>${m.bandiera||""}</td><td>${m.societa}</td></tr>`;
+        html += `<tr><td></td><td class="posto">${m.posto}</td><td>${m.atleta}</td><td>${m.anno_nascita||""}</td><td>${m.bandiera||""}</td><td>${m.societa}</td></tr>`;
       });
     });
     corpo.innerHTML = html;
