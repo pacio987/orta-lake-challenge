@@ -238,7 +238,7 @@ function inizializzaStartListEquipaggi(dati, opt){
     const nomi = Object.keys(equipaggi).sort((a,b)=>{
       const ra = equipaggi[a][0], rb = equipaggi[b][0];
       const pa = ra.pettorale ?? 9999, pb = rb.pettorale ?? 9999;
-      return pa - pb || a.localeCompare(b,"it");
+      return (ra.orario||"").localeCompare(rb.orario||"") || pa - pb || a.localeCompare(b,"it");
     });
     let html = "";
     let nCrew = 0, nAtleti = 0, orarioPrec = null;

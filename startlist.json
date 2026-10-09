@@ -1636,12 +1636,12 @@
    "posto": "1",
    "atleta": "Bartonickova Anna",
    "societa": "LYSÁ NAD LABEM VK (CZE)",
-   "categoria": "Under 19",
+   "categoria": "Senior",
    "genere_equipaggio": "F",
    "anno_nascita": 2010,
    "bandiera": "🇨🇿",
    "barca": "Barca dell'organizzazione",
-   "categoria_rank": 2,
+   "categoria_rank": 1,
    "genere_rank": 2,
    "pettorale": 5,
    "orario": "10:00"
@@ -1651,12 +1651,12 @@
    "posto": "2",
    "atleta": "Cihakova Aneta",
    "societa": "LYSÁ NAD LABEM VK (CZE)",
-   "categoria": "Under 19",
+   "categoria": "Senior",
    "genere_equipaggio": "F",
    "anno_nascita": 2010,
    "bandiera": "🇨🇿",
    "barca": "Barca dell'organizzazione",
-   "categoria_rank": 2,
+   "categoria_rank": 1,
    "genere_rank": 2,
    "pettorale": 5,
    "orario": "10:00"
@@ -1666,12 +1666,12 @@
    "posto": "3",
    "atleta": "Engelthalerova Sarka",
    "societa": "LYSÁ NAD LABEM VK (CZE)",
-   "categoria": "Under 19",
+   "categoria": "Senior",
    "genere_equipaggio": "F",
    "anno_nascita": 2009,
    "bandiera": "🇨🇿",
    "barca": "Barca dell'organizzazione",
-   "categoria_rank": 2,
+   "categoria_rank": 1,
    "genere_rank": 2,
    "pettorale": 5,
    "orario": "10:00"
@@ -1681,12 +1681,12 @@
    "posto": "4",
    "atleta": "Jedlickova Magdalena",
    "societa": "LYSÁ NAD LABEM VK (CZE)",
-   "categoria": "Under 19",
+   "categoria": "Senior",
    "genere_equipaggio": "F",
    "anno_nascita": 2008,
    "bandiera": "🇨🇿",
    "barca": "Barca dell'organizzazione",
-   "categoria_rank": 2,
+   "categoria_rank": 1,
    "genere_rank": 2,
    "pettorale": 5,
    "orario": "10:00"
@@ -1696,12 +1696,12 @@
    "posto": "5",
    "atleta": "Pivonkova Katerina",
    "societa": "LYSÁ NAD LABEM VK (CZE)",
-   "categoria": "Under 19",
+   "categoria": "Senior",
    "genere_equipaggio": "F",
    "anno_nascita": 2011,
    "bandiera": "🇨🇿",
    "barca": "Barca dell'organizzazione",
-   "categoria_rank": 2,
+   "categoria_rank": 1,
    "genere_rank": 2,
    "pettorale": 5,
    "orario": "10:00"
@@ -1711,12 +1711,12 @@
    "posto": "6",
    "atleta": "Mackova Kristýna",
    "societa": "LYSÁ NAD LABEM VK (CZE)",
-   "categoria": "Under 19",
+   "categoria": "Senior",
    "genere_equipaggio": "F",
    "anno_nascita": 2003,
    "bandiera": "🇨🇿",
    "barca": "Barca dell'organizzazione",
-   "categoria_rank": 2,
+   "categoria_rank": 1,
    "genere_rank": 2,
    "pettorale": 5,
    "orario": "10:00"
@@ -1726,12 +1726,12 @@
    "posto": "7",
    "atleta": "Blahova Ema",
    "societa": "LYSÁ NAD LABEM VK (CZE)",
-   "categoria": "Under 19",
+   "categoria": "Senior",
    "genere_equipaggio": "F",
    "anno_nascita": 2009,
    "bandiera": "🇨🇿",
    "barca": "Barca dell'organizzazione",
-   "categoria_rank": 2,
+   "categoria_rank": 1,
    "genere_rank": 2,
    "pettorale": 5,
    "orario": "10:00"
@@ -1741,12 +1741,12 @@
    "posto": "8",
    "atleta": "Chladkova Viktorie",
    "societa": "LYSÁ NAD LABEM VK (CZE)",
-   "categoria": "Under 19",
+   "categoria": "Senior",
    "genere_equipaggio": "F",
    "anno_nascita": 2008,
    "bandiera": "🇨🇿",
    "barca": "Barca dell'organizzazione",
-   "categoria_rank": 2,
+   "categoria_rank": 1,
    "genere_rank": 2,
    "pettorale": 5,
    "orario": "10:00"
@@ -1756,12 +1756,12 @@
    "posto": "tim.",
    "atleta": "Nydrle Jakub",
    "societa": "LYSÁ NAD LABEM VK (CZE)",
-   "categoria": "Under 19",
+   "categoria": "Senior",
    "genere_equipaggio": "F",
    "anno_nascita": 2011,
    "bandiera": "🇨🇿",
    "barca": "Barca dell'organizzazione",
-   "categoria_rank": 2,
+   "categoria_rank": 1,
    "genere_rank": 2,
    "pettorale": 5,
    "orario": "10:00"
@@ -5154,7 +5154,7 @@
    "categoria_rank": 5,
    "genere_rank": 1,
    "pettorale": 31,
-   "orario": "12:00"
+   "orario": "14:00"
   },
   {
    "equipaggio": "Wiking Men Power Team",
@@ -5169,7 +5169,7 @@
    "categoria_rank": 5,
    "genere_rank": 1,
    "pettorale": 31,
-   "orario": "12:00"
+   "orario": "14:00"
   },
   {
    "equipaggio": "Wiking Men Power Team",
@@ -5184,7 +5184,7 @@
    "categoria_rank": 5,
    "genere_rank": 1,
    "pettorale": 31,
-   "orario": "12:00"
+   "orario": "14:00"
   },
   {
    "equipaggio": "Wiking Men Power Team",
@@ -5199,7 +5199,7 @@
    "categoria_rank": 5,
    "genere_rank": 1,
    "pettorale": 31,
-   "orario": "12:00"
+   "orario": "14:00"
   },
   {
    "equipaggio": "Wiking Men Power Team",
@@ -5214,7 +5214,7 @@
    "categoria_rank": 5,
    "genere_rank": 1,
    "pettorale": 31,
-   "orario": "12:00"
+   "orario": "14:00"
   },
   {
    "equipaggio": "Wiking Men Power Team",
@@ -5229,7 +5229,7 @@
    "categoria_rank": 5,
    "genere_rank": 1,
    "pettorale": 31,
-   "orario": "12:00"
+   "orario": "14:00"
   },
   {
    "equipaggio": "Wiking Men Power Team",
@@ -5244,7 +5244,7 @@
    "categoria_rank": 5,
    "genere_rank": 1,
    "pettorale": 31,
-   "orario": "12:00"
+   "orario": "14:00"
   },
   {
    "equipaggio": "Wiking Men Power Team",
@@ -5259,7 +5259,7 @@
    "categoria_rank": 5,
    "genere_rank": 1,
    "pettorale": 31,
-   "orario": "12:00"
+   "orario": "14:00"
   },
   {
    "equipaggio": "Wiking Men Power Team",
@@ -5274,7 +5274,7 @@
    "categoria_rank": 5,
    "genere_rank": 1,
    "pettorale": 31,
-   "orario": "12:00"
+   "orario": "14:00"
   },
   {
    "equipaggio": "OAR - some Ladies ",
