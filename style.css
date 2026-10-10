@@ -198,3 +198,12 @@ a.indietro:hover{ text-decoration:underline; }
   table{ font-size:.85rem; }
   thead th, tbody td{ padding:.4rem .4rem; }
 }
+
+/* Logo della manifestazione nell'intestazione (versione bianca su sfondo blu) */
+.logo-header{
+  position:absolute; right:1.5rem; top:1.4rem;
+  height:92px; width:auto; z-index:1;
+}
+@media (max-width:600px){
+  .logo-header{ position:static; display:block; height:58px; margin:0 0 1rem; }
+}
