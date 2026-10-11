@@ -5735,5 +5735,150 @@
    "tempo": "30:34.8"
   }
  ],
- "arrivi_1000": []
+ "arrivi_1000": [
+  {
+   "pettorale": 151,
+   "atleta": "Mariotti Massimo",
+   "societa": "VVF TOMEI",
+   "bandiera": "🇮🇹",
+   "categoria": "Cadetti",
+   "genere": "M",
+   "categoria_rank": 1,
+   "tempo": "4:01.4",
+   "pos_assoluta": 1,
+   "pos_categoria": 1
+  },
+  {
+   "pettorale": 150,
+   "atleta": "Kuutio Kristofer",
+   "societa": "LAGO D'ORTA",
+   "bandiera": "🇮🇹",
+   "categoria": "Cadetti",
+   "genere": "M",
+   "categoria_rank": 1,
+   "tempo": "4:13.0",
+   "pos_assoluta": 2,
+   "pos_categoria": 2
+  },
+  {
+   "pettorale": 171,
+   "atleta": "Marson Diego",
+   "societa": "RENESE",
+   "bandiera": "🇮🇹",
+   "categoria": "Allievi C",
+   "genere": "M",
+   "categoria_rank": 2,
+   "tempo": "4:32.4",
+   "pos_assoluta": 3,
+   "pos_categoria": 1
+  },
+  {
+   "pettorale": 152,
+   "atleta": "Manca Valentina",
+   "societa": "LAGO D'ORTA",
+   "bandiera": "🇮🇹",
+   "categoria": "Cadetti",
+   "genere": "F",
+   "categoria_rank": 1,
+   "tempo": "4:39.0",
+   "pos_assoluta": 4,
+   "pos_categoria": 1
+  },
+  {
+   "pettorale": 153,
+   "atleta": "Mladenic Iona",
+   "societa": "SINGAPORE ROWING ASSOCIATION (SGP)",
+   "bandiera": "🇸🇬",
+   "categoria": "Cadetti",
+   "genere": "F",
+   "categoria_rank": 1,
+   "tempo": "4:59.0",
+   "pos_assoluta": 5,
+   "pos_categoria": 2
+  },
+  {
+   "pettorale": 181,
+   "atleta": "Piana Jacopo",
+   "societa": "OMEGNA SC",
+   "bandiera": "🇮🇹",
+   "categoria": "Allievi B2",
+   "genere": "M",
+   "categoria_rank": 3,
+   "tempo": "5:01.7",
+   "pos_assoluta": 6,
+   "pos_categoria": 1
+  },
+  {
+   "pettorale": 183,
+   "atleta": "Hächler Rahel",
+   "societa": "CASLANO E MALCANTONE (SUI)",
+   "bandiera": "🇨🇭",
+   "categoria": "Allievi B2",
+   "genere": "F",
+   "categoria_rank": 3,
+   "tempo": "5:03.3",
+   "pos_assoluta": 7,
+   "pos_categoria": 1
+  },
+  {
+   "pettorale": 172,
+   "atleta": "Ragnoli Francesca",
+   "societa": "LAGO D'ORTA",
+   "bandiera": "🇮🇹",
+   "categoria": "Allievi C",
+   "genere": "F",
+   "categoria_rank": 2,
+   "tempo": "5:04.7",
+   "pos_assoluta": 8,
+   "pos_categoria": 1
+  },
+  {
+   "pettorale": 173,
+   "atleta": "Carpentieri Aurora Bruna",
+   "societa": "RENESE",
+   "bandiera": "🇮🇹",
+   "categoria": "Allievi C",
+   "genere": "F",
+   "categoria_rank": 2,
+   "tempo": "5:19.2",
+   "pos_assoluta": 9,
+   "pos_categoria": 2
+  },
+  {
+   "pettorale": 182,
+   "atleta": "Montresor Emma",
+   "societa": "LAGO D'ORTA",
+   "bandiera": "🇮🇹",
+   "categoria": "Allievi B2",
+   "genere": "F",
+   "categoria_rank": 3,
+   "tempo": "5:33.8",
+   "pos_assoluta": 10,
+   "pos_categoria": 2
+  },
+  {
+   "pettorale": 161,
+   "atleta": "Coppi Achille",
+   "societa": "LAGO D'ORTA",
+   "bandiera": "🇮🇹",
+   "categoria": "Allievi B1",
+   "genere": "M",
+   "categoria_rank": 4,
+   "tempo": "6:04.8",
+   "pos_assoluta": 11,
+   "pos_categoria": 1
+  },
+  {
+   "pettorale": 162,
+   "atleta": "Miscio Leandro",
+   "societa": "LAGO D'ORTA",
+   "bandiera": "🇮🇹",
+   "categoria": "Allievi B1",
+   "genere": "M",
+   "categoria_rank": 4,
+   "tempo": "6:19.8",
+   "pos_assoluta": 12,
+   "pos_categoria": 2
+  }
+ ]
 }
