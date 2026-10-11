@@ -38,12 +38,12 @@
   },
   {
    "pettorale": 5,
-   "atleta": "Šmolík Jan",
-   "societa": "ČVK PRAHA (CZE)",
+   "atleta": "Mair Matthias",
+   "societa": "WIKING LINZ RV (AUT)",
    "categoria": "Senior",
    "genere": "M",
-   "bandiera": "🇨🇿",
-   "anno_nascita": 1998
+   "bandiera": "🇦🇹",
+   "anno_nascita": 2003
   },
   {
    "pettorale": 6,
@@ -137,12 +137,12 @@
   },
   {
    "pettorale": 16,
-   "atleta": "Chalupa Daniel",
+   "atleta": "Hultsch Konrad",
    "societa": "WIKING LINZ RV (AUT)",
    "categoria": "Senior",
    "genere": "M",
    "bandiera": "🇦🇹",
-   "anno_nascita": 1989
+   "anno_nascita": 2001
   },
   {
    "pettorale": 17,
@@ -173,12 +173,12 @@
   },
   {
    "pettorale": 20,
-   "atleta": "Haginger Caroline",
+   "atleta": "Nagler Katharina",
    "societa": "WIKING LINZ RV (AUT)",
    "categoria": "Senior",
    "genere": "F",
    "bandiera": "🇦🇹",
-   "anno_nascita": 1992
+   "anno_nascita": 2005
   },
   {
    "pettorale": 21,
@@ -281,21 +281,21 @@
   },
   {
    "pettorale": 32,
-   "atleta": "Hultsch Konrad",
+   "atleta": "Chalupa Daniel",
    "societa": "WIKING LINZ RV (AUT)",
    "categoria": "Senior",
    "genere": "M",
    "bandiera": "🇦🇹",
-   "anno_nascita": 2001
+   "anno_nascita": 1989
   },
   {
    "pettorale": 33,
-   "atleta": "Mair Matthias",
-   "societa": "WIKING LINZ RV (AUT)",
+   "atleta": "Šmolík Jan",
+   "societa": "ČVK PRAHA (CZE)",
    "categoria": "Senior",
    "genere": "M",
-   "bandiera": "🇦🇹",
-   "anno_nascita": 2003
+   "bandiera": "🇨🇿",
+   "anno_nascita": 1998
   },
   {
    "pettorale": 34,
@@ -434,12 +434,12 @@
   },
   {
    "pettorale": 49,
-   "atleta": "Nagler Katharina",
+   "atleta": "Haginger Caroline",
    "societa": "WIKING LINZ RV (AUT)",
    "categoria": "Senior",
    "genere": "F",
    "bandiera": "🇦🇹",
-   "anno_nascita": 2005
+   "anno_nascita": 1992
   },
   {
    "pettorale": 50,
